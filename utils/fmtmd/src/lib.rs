@@ -120,24 +120,24 @@ fn split(line: String) -> String {
 
 /// Save file_string to file
 fn string_to_file(cfg: Config, file_string: String) {
-    let file_name: Vec<&str> = cfg.path.split('.').collect();
-    let stem = file_name[0];
+    // let file_name: Vec<&str> = cfg.path.split('.').collect();
+    // let stem = file_name[0];
     let file_path = path::Path::new(&cfg.path).canonicalize().unwrap();
     log::debug!("file_path: {:?}", file_path);
 
-    let new_name = format!(
-        "{}/{}_fmtd.md",
-        file_path
-            .parent()
-            .unwrap()
-            .parent()
-            .unwrap()
-            .display(),
-        stem
-    );
-    log::debug!("string_to_file::new_name: {}", new_name);
+    // let new_name = format!(
+    //     "{}/{}_fmtd.md",
+    //     file_path
+    //         .parent()
+    //         .unwrap()
+    //         .parent()
+    //         .unwrap()
+    //         .display(),
+    //     stem
+    // );
+    // log::debug!("string_to_file::new_name: {}", new_name);
 
-    match File::create(new_name) {
+    match File::create(file_path) {
         Ok(mut f) => {
             match write!(f, "{}", file_string) {
                 Ok(_) => {},

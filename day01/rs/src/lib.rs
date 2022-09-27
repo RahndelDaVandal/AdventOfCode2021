@@ -3,7 +3,7 @@ use std::io::prelude::*;
 use std::process;
 use std::str::FromStr;
 
-pub fn num_increased(data: Vec<i32>) -> i32 {
+pub fn count_increase(data: Vec<i32>) -> i32 {
     let mut count = 0;
     let mut last:Option<i32> = None;
     for v in data {
